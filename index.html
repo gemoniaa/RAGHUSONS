@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Raghusons Infra Engineering Pvt Ltd</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏗️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{hz:'#FFB800',sf:'#FF5722',cy:'#00E5FF',ap:'#08090D',st:'#1E2330',cc:'#11131B'},fontFamily:{d:['Oswald','Impact','sans-serif'],m:['Plus Jakarta Sans','sans-serif']}}}}</script>
+<!-- Supabase JS SDK CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{color-scheme:dark;box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth}
+body{background:#050608;color:#d3d8e6;font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden}
+#fc{position:absolute;inset:0;width:100%;height:100%}
+.vg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 42%,rgba(5,6,8,.88) 100%)}
+.bp{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,229,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.05) 1px,transparent 1px);background-size:56px 56px}
+.gl{position:relative;background:rgba(14,16,23,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(0,229,255,.2)}
+.gl:before,.gl:after{content:"";position:absolute;width:14px;height:14px;border:3px solid #FFB800;pointer-events:none}
+.gl:before{top:-2px;left:-2px;border-right:0;border-bottom:0}.gl:after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.hz{background:repeating-linear-gradient(-45deg,#FFB800 0 12px,#08090D 12px 24px)}
+.tk{position:fixed;top:0;left:0;right:0;z-index:50;height:calc(32px + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);background:#FFB800;color:#08090D;overflow:hidden;white-space:nowrap;font:700 12px/32px 'Plus Jakarta Sans',sans-serif}
+.tk div{display:inline-block;animation:mq 45s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}
+.hd{position:fixed;left:0;right:0;top:calc(32px + env(safe-area-inset-top,0px));z-index:40;background:rgba(5,6,8,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2px solid #1E2330}
+.ch{position:absolute;inset:0;display:flex;align-items:center;padding:96px 5vw 0;pointer-events:none;visibility:hidden}
+.sL{justify-content:flex-start}.sR{justify-content:flex-end;text-align:right}.sC{justify-content:center;text-align:center}
+.bx{position:relative;max-width:560px;isolation:isolate}.bx.w{max-width:min(1100px,100%)}
+.bx:before{content:"";position:absolute;inset:-14% -20%;z-index:-1;background:radial-gradient(closest-side,rgba(5,6,8,.72),transparent)}
+.mega{font:700 clamp(3.4rem,17vw,15rem)/.85 Oswald,Impact,sans-serif;text-transform:uppercase;color:#fff}
+.hx{font:700 clamp(2.1rem,5.4vw,4.8rem)/.95 Oswald,Impact,sans-serif;text-transform:uppercase;color:#fff;text-shadow:0 2px 20px #000}
+.tg{font:600 clamp(.75rem,1.6vw,1.1rem) 'Plus Jakarta Sans',sans-serif;color:#FFB800;letter-spacing:.12em;text-transform:uppercase}
+.lb{font:600 11px 'Plus Jakarta Sans',sans-serif;color:#00E5FF;letter-spacing:.05em}
+.pp{font-size:clamp(.95rem,1.4vw,1.15rem);line-height:1.55;margin-top:1rem;color:#e6e9f2;text-shadow:0 1px 12px #000}
+.pt{position:absolute;left:0;top:0;pointer-events:none;opacity:0;z-index:5}
+.pt i{position:absolute;left:-14px;top:-14px;width:28px;height:28px;border:2px solid #00E5FF;border-radius:50%;animation:pl 1.6s infinite}
+.pt span{position:absolute;left:26px;top:-10px;white-space:nowrap;font:700 11px 'Plus Jakarta Sans',sans-serif;color:#00E5FF;background:rgba(5,6,8,.8);padding:3px 7px;border-left:3px solid #FFB800}
+@keyframes pl{50%{opacity:.25;transform:scale(1.25)}}
+.br{position:absolute;width:26px;height:26px;border:3px solid #FFB800;pointer-events:none}
+#rl{position:absolute;right:14px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:6}
+#rl i{display:block;width:14px;height:3px;background:#39404f}#rl i.on{width:30px;background:#FFB800}
+.bt{font:700 11px 'Plus Jakarta Sans',sans-serif;padding:.7rem 1rem;border:1px solid #FFB800;color:#08090D;background:#FFB800;cursor:pointer;text-transform:uppercase;letter-spacing:.05em}
+.in{width:100%;background:rgba(8,9,13,.8);border:1px solid #1E2330;border-bottom:2px solid rgba(0,229,255,.4);padding:.6rem;color:#fff;font:400 13px 'Plus Jakarta Sans',sans-serif}
+a:focus-visible,.bt:focus-visible,.in:focus-visible{outline:2px solid #00E5FF;outline-offset:2px}
+dl div{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-bottom:1px dashed #1E2330;font:500 12px 'Plus Jakarta Sans',sans-serif;text-align:left}dt{color:#8b93a8}dd{color:#fff;text-align:right}
+#dirs .gl{padding:.7rem}#dirs .w-16{width:2.6rem;height:2.6rem;font-size:1.3rem}#dirs .text-xl{font-size:.95rem;line-height:1.1}
+@media (max-width:767px){.ch{align-items:flex-end;padding-bottom:13vh}.sL,.sR{justify-content:center;text-align:left}#rl{display:none}}
+@media (prefers-reduced-motion:reduce){.tk div,.pt i{animation:none}}
+</style></head>
+<body>
+<div class="tk" id="tk"></div>
+<header class="hd"><div class="max-w-7xl mx-auto px-4 h-14 flex items-center gap-4"><span class="hz p-[3px] shrink-0"><span class="block bg-ap font-d font-bold text-hz px-2 py-1 tracking-widest text-sm">RIEPL</span></span><span class="hidden md:flex items-center gap-2 font-m text-[11px] font-semibold text-cy shrink-0">JODHPUR HQ • PAN-INDIA</span><nav class="ml-auto flex gap-5 overflow-x-auto whitespace-nowrap font-m text-xs font-medium"><a data-go=".26" href="#film">Capabilities</a><a data-go=".755" href="#film">Footprint</a><a data-go=".86" href="#film">Profile</a><a data-go=".955" href="#film">Board</a><a href="#procure" class="text-hz font-semibold">Procurement</a></nav></div></header>
+<section id="film" style="height:1300vh;position:relative" aria-label="Scroll film: exploded backhoe loader">
+<div style="position:sticky;top:0;height:100vh;height:100svh;overflow:hidden">
+<canvas id="fc" role="img" aria-label="Backhoe loader coming apart into its parts as you scroll"></canvas><div class="vg"></div><div class="bp"></div><div id="fd" class="absolute inset-0 bg-ap pointer-events-none" style="opacity:0"></div>
+<div class="br" style="left:14px;top:calc(96px + env(safe-area-inset-top,0px));border-right:0;border-bottom:0"></div><div class="br" style="right:14px;top:calc(96px + env(safe-area-inset-top,0px));border-left:0;border-bottom:0"></div><div class="br" style="left:14px;bottom:14px;border-right:0;border-top:0"></div><div class="br" style="right:14px;bottom:14px;border-left:0;border-top:0"></div>
+<div id="hud" class="lb absolute" style="left:26px;top:calc(110px + env(safe-area-inset-top,0px))"></div><div id="rl"></div><div id="pts"></div>
+<div class="ch sC" data-a="-0.2" data-b="0.09" data-x="z"><div class="bx w"><h1 class="mega" data-i="0">Raghusons</h1><p class="tg mt-4" data-i="1">Engineering precision, completing visions.</p><p class="lb mt-5" data-i="2">RAGHUSONS INFRA ENGINEERING PVT LTD · JODHPUR HQ · SCROLL TO OPEN THE MACHINE</p></div></div>
+<div class="ch sL" data-a="0.09" data-b="0.21" ><div class="bx "><h2 class="hx" data-i="0">Public utilities. Military housing. Structural finishing.</h2><p class="pp" data-i="1">Civil works for government clients, delivered from Jodhpur across 14 states.</p></div></div>
+<div class="ch sR" data-a="0.2" data-b="0.32" data-px=".13" data-py=".76" data-tag="LOADER BUCKET"><div class="bx "><p class="tg" data-i="0">Capability 1 of 4</p><h2 class="hx mt-3" data-i="1">General civil works</h2><p class="pp" data-i="2">Site works, structures and civil packages built to government specification.</p></div></div>
+<div class="ch sL" data-a="0.32" data-b="0.44" data-px=".54" data-py=".3" data-tag="OPERATOR CAB"><div class="bx "><p class="tg" data-i="0">Capability 2 of 4</p><h2 class="hx mt-3" data-i="1">Building completion &amp; architectural finishing</h2><p class="pp" data-i="2">From bare frame to handover: the finishing that closes out a building.</p></div></div>
+<div class="ch sR" data-a="0.44" data-b="0.58" data-px=".33" data-py=".3" data-tag="POWER UNIT"><div class="bx "><p class="tg" data-i="0">Capability 3 of 4</p><h2 class="hx mt-3" data-i="1">Public &amp; defence utilities</h2><p class="pp" data-i="2">Utility works and housing complexes for public and defence clients.</p><div class="hx cnt mt-6 text-hz" data-i="3" data-to="19.46" data-dec="2" data-pre="₹" data-suf=" Cr" style="color:#FFB800">₹19.46 Cr</div><p class="lb" data-i="4">DEFENCE CONTRACT · IN-LIVING ACCOMMODATION COMPLEXES</p></div></div>
+<div class="ch sL" data-a="0.58" data-b="0.7" data-px=".66" data-py=".7" data-tag="FINAL DRIVE"><div class="bx "><p class="tg" data-i="0">Capability 4 of 4</p><h2 class="hx mt-3" data-i="1">Asset restoration</h2><p class="pp" data-i="2">Structural repair that extends the life of existing public buildings and assets.</p></div></div>
+<div class="ch sC" data-a="0.7" data-b="0.81" ><div class="bx w"><h2 class="hx" data-i="0">Fourteen states, one primary hub.</h2><p class="pp" data-i="1">Active government bidding across 14 states, with Rajasthan as the primary hub.</p><div class="grid grid-cols-3 gap-4 mt-6 max-w-3xl mx-auto"><div data-i="2"><div class="hx cnt" data-to="14" data-dec="0" data-pre="" data-suf="" style="color:#FFB800">14</div><div class="lb">ACTIVE STATES</div></div><div data-i="3"><div class="hx cnt" data-to="67" data-dec="0" data-pre="" data-suf="+" style="color:#FFB800">67+</div><div class="lb">MAJOR GOVT BIDS</div></div><div data-i="4"><div class="hx cnt" data-to="19.46" data-dec="2" data-pre="₹" data-suf=" Cr" style="color:#FF5722">₹19.46 Cr</div><div class="lb">DEFENCE PROJECT WIN</div></div></div><div id="pips" class="flex flex-wrap justify-center gap-2 mt-6 [&>div]:w-6 [&>div]:h-6" data-i="5"></div><p class="lb mt-2" data-i="6"><span class="text-sf">■</span> RAJASTHAN · PRIMARY HUB</p></div></div>
+<div class="ch sR" data-a="0.81" data-b="0.91" ><div class="bx "><h2 class="hx" data-i="0">Corporate profile &amp; capital base</h2><div class="gl p-5 mt-5" data-i="1"><dl><div><dt>Incorporated</dt><dd>12 April 2018</dd></div><div><dt>Headquarters</dt><dd>Jodhpur, Rajasthan</dd></div><div><dt>Registrar</dt><dd>RoC Jaipur</dd></div><div><dt>CIN</dt><dd>U45400RJ2018PTC060903</dd></div><div><dt>Operating revenue</dt><dd class="!text-hz">₹50 Crore – ₹100 Crore</dd></div></dl><div class="mt-4 text-left font-m text-xs"><div class="flex justify-between"><span>AUTHORIZED CAPITAL</span><b class="text-white">₹1.10 Cr</b></div><div class="h-2 bg-st mt-1 mb-3"></div><div class="flex justify-between"><span>PAID-UP CAPITAL</span><b class="text-white">₹45 Lakh</b></div><div class="h-2 bg-st mt-1"><div class="h-2 hz" style="width:41%"></div></div></div></div></div></div>
+<div class="ch sC" data-a="0.91" data-b="1.03" ><div class="bx w"><h2 class="hx" data-i="0">Leadership &amp; board of directors</h2><div id="dirs" class="grid grid-cols-3 sm:grid-cols-5 gap-3 mt-6 text-left" data-i="1"></div></div></div>
+<div id="pb" class="hz absolute left-0 bottom-0 h-1" style="width:0"></div></div></section>
+<section id="procure" class="relative z-10 bg-ap"><div class="hz h-2"></div><div class="max-w-6xl mx-auto px-4 py-24 grid lg:grid-cols-[.8fr_1.2fr] gap-10"><div><h2 class="hx">Subcontractor &amp; procurement portal</h2><p class="pp">Equipment vendors and civil subcontractors: send your quote straight to Jodhpur HQ.</p><p class="lb mt-3">raghusonsinfra@gmail.com</p></div>
+<form id="qf" class="gl p-6 grid sm:grid-cols-2 gap-4"><label class="lb">COMPANY<input class="in mt-1" name="c" required></label><label class="lb">CONTACT PERSON<input class="in mt-1" name="n" required></label><label class="lb">PHONE OR EMAIL<input class="in mt-1" name="p" required></label><label class="lb">CATEGORY<select class="in mt-1" name="t"><option>Equipment vendor</option><option>Civil subcontractor</option><option>Materials supplier</option></select></label><label class="lb">QUOTED VALUE (₹)<input class="in mt-1" name="v" inputmode="numeric"></label><label class="lb sm:col-span-2">SCOPE AND QUOTE DETAILS<textarea class="in mt-1" name="d" rows="4" required></textarea></label><div class="sm:col-span-2 flex flex-wrap items-center gap-4"><button class="bt" type="submit">Send quote to Jodhpur HQ</button><span id="st" class="font-m text-xs" role="status">Goes to raghusonsinfra@gmail.com</span></div></form></div></section>
+<footer class="relative z-10 bg-ap border-t-4 border-hz"><div class="hz h-2"></div>
+<div class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 font-m text-xs leading-relaxed">
+<div><b class="text-white">RAGHUSONS INFRA ENGINEERING PRIVATE LIMITED</b><br>CIN: U45400RJ2018PTC060903<br>Registrar of Companies: RoC Jaipur</div>
+<div>Authorized capital ₹1.10 Cr<br>Paid-up capital ₹45 Lakh<br>Incorporated 12 April 2018</div>
+<div>35-B, Bheru Villas, Sardar Club Scheme, Air Force, Jodhpur, Rajasthan - 342011<br><a class="text-cy" href="mailto:raghusonsinfra@gmail.com">raghusonsinfra@gmail.com</a></div></div></footer>
+<script>
+const $=id=>document.getElementById(id);$('tk').innerHTML='<div>'+'RAGHUSONS INFRA ENGINEERING PVT LTD • CIN: U45400RJ2018PTC060903 • OPERATING REVENUE: ₹50 CR – ₹100 CR • PAN-INDIA 14 STATES • HQ: JODHPUR • '.repeat(8)+'</div>';
+$('pips').innerHTML=Array.from({length:14},(_,i)=>`<div class="aspect-square border ${i?'border-cy/50':'bg-sf border-sf'}"></div>`).join('');
+$('dirs').innerHTML=['Narendra Choudhary','Hodal Singh','Neeraj Choudhary','Priti Choudhary','Anita Choudhary'].map(n=>`<div class="gl p-5"><div class="w-16 h-16 border-2 border-hz grid place-items-center font-d text-3xl text-hz">${n.split(' ').map(w=>w[0]).join('')}</div><div class="font-d text-xl text-white uppercase mt-4">${n}</div><div class="lb">DIRECTOR</div></div>`).join('');
+
+// --- SUPABASE CONFIGURATION ---
+const SUPABASE_URL = 'https://lhxlqnohqjcfbedtcair.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInRefiI6ImxoeGxxbm9ocWpjZmJlZHRjYWlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyMjUxMzUsImV4cCI6210NTgwMTEzNX0.cz9AeycYNgRN8iEB-PFR4u9Qjtp4yKjfTqiEwV6LWv0';
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+$('qf').onsubmit = async (e) => {
+  e.preventDefault();
+  const status = $('st');
+  const button = e.target.querySelector('button');
+  button.disabled = true;
+  status.textContent = 'Submitting quote to Jodhpur HQ...';
+
+  const f = new FormData(e.target);
+  const g = k => f.get(k);
+
+  const payload = {
+    name: g('n'),
+    email: g('p'),
+    phone: g('p'),
+    service_type: g('t'),
+    message: `Company: ${g('c')}\nQuoted Value: ₹${g('v')}\nDetails: ${g('d')}`
+  };
+
+  const { data, error } = await supabaseClient
+    .from('quote_requests')
+    .insert([payload]);
+
+  if (error) {
+    console.error('Supabase submission error:', error);
+    status.innerHTML = 'Error saving. Opening mail app fallback...';
+    const b = `Company: ${g('c')}\nContact: ${g('n')} (${g('p')})\nCategory: ${g('t')}\nQuoted value (INR): ${g('v')}\n\n${g('d')}`;
+    const u = 'mailto:raghusonsinfra@gmail.com?subject=' + encodeURIComponent('Quote submission - ' + g('c')) + '&body=' + encodeURIComponent(b);
+    location.href = u;
+  } else {
+    status.textContent = 'Quote successfully logged into Jodhpur HQ database!';
+    e.target.reset();
+  }
+  button.disabled = false;
+};
+
+const F=null;
+(()=>{const N=F?F.length:180,cv=$('fc'),X=cv.getContext('2d'),film=$('film'),imgs=[],chs=[...document.querySelectorAll('.ch')],rl=$('rl'),RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),sm=t=>t*t*(3-2*t),ln=t=>t;
+const K=[[0,.46,.5,1,.5],[.15,.5,.48,1.15,.66],[.26,.15,.72,2.1,.38],[.38,.52,.28,1.9,.64],[.51,.32,.3,2.4,.36],[.64,.6,.76,2,.64],[.755,.5,.5,1,.5],[.86,.5,.5,1.1,.36],[.955,.5,.5,1,.5],[1.05,.5,.5,1,.5]];
+const FM=[[0,0],[.09,10],[.21,38],[.32,68],[.44,98],[.58,133],[.7,158],[1.05,179]];
+const mix=(A,p,f)=>{let i=0;while(i<A.length-2&&p>=A[i+1][0])i++;const a=A[i],b=A[i+1],u=f(cl((p-a[0])/(b[0]-a[0])));return a.map((v,k)=>v+(b[k]-v)*u)};
+const pts=chs.map(c=>{rl.appendChild(document.createElement('i'));if(!c.dataset.px)return null;const d=document.createElement('div');d.className='pt';d.innerHTML='<i></i><span>'+c.dataset.tag+'</span>';$('pts').appendChild(d);return d});
+let cw=1,ch=1,dpr=1,p=0,ps=0,fr=0,cam=K[0],FW=1,FH=1,ay=.5,ax=.5,loaded=0;
+const near=i=>{for(let d=0;d<N;d++)for(const j of[i-d,i+d]){const m=imgs[j];if(m&&m.complete&&m.naturalWidth)return m}};
+const draw=()=>{const m=near(Math.round(fr));if(!m)return;X.setTransform(dpr,0,0,dpr,0,0);X.fillStyle='#050608';X.fillRect(0,0,cw,ch);X.drawImage(m,ax*cw-cam[1]*FW,ay*ch-cam[2]*FH,FW,FH)};
+const rs=()=>{dpr=Math.min(devicePixelRatio||1,1.5);cw=innerWidth;ch=innerHeight;cv.width=cw*dpr;cv.height=ch*dpr;frame()};
+const frame=()=>{cam=mix(K,ps,sm);fr=mix(FM,ps,ln)[1];const mob=cw<768;FW=(mob?Math.max(cw*1.25,ch*.75):Math.max(cw,ch*16/9))*cam[3];FH=FW*9/16;ay=mob?.36:.5;ax=mob?.5+(cam[4]-.5)*.4:cam[4];draw();
+ $('hud').textContent='CAM-01 · ZOOM '+cam[3].toFixed(1)+'× · FRAME '+String(Math.round(fr)+1).padStart(3,'0')+'/'+N+(loaded<N?' · LOADING '+Math.round(loaded/N*100)+'%':'');$('pb').style.width=ps*100+'\%';$('fd').style.opacity=cl((ps-.965)/.035)*.9;
+ chs.forEach((c,ci)=>{const a=+c.dataset.a,b=+c.dataset.b,t=(ps-a)/(b-a),inn=cl(t/.22),out=cl((1-t)/.2),vis=inn>0&&out>0;c.style.visibility=vis?'visible':'hidden';rl.children[ci].className=vis&&inn*out>.6?'on':'';const d=pts[ci];
+  if(d){d.style.opacity=vis?inn*out*(cam[3]>1.5?1:.3):0;d.style.transform='translate('+((+c.dataset.px-cam[1])*FW+ax*cw)+'px,'+((+c.dataset.py-cam[2])*FH+ay*ch)+'px)'}
+  if(!vis)return;c.querySelectorAll('[data-i]').forEach(e=>{const q=cl(inn*1.5-(+e.dataset.i)*.28);e.style.opacity=q*out;e.style.transform='translateY('+((1-q)*70-(1-out)*50)+'px)'+(c.dataset.x?' scale('+(1+(1-out)*.6)+')':'');e.style.filter=RM?'none':'blur('+((1-q)*14+(1-out)*10)+'px)'});
+  c.querySelectorAll('.cnt').forEach(e=>{e.textContent=e.dataset.pre+((+e.dataset.to)*(1-Math.pow(1-inn,3))).toFixed(+e.dataset.dec)+e.dataset.suf})})};
+const upd=()=>{const r=film.getBoundingClientRect();p=cl(-r.top/Math.max(1,r.height-innerHeight))};
+const src=i=>F?'data:image/webp;base64,'+F[i]:'frames/f'+String(i+1).padStart(3,'0')+'.webp';
+for(let i=0;i<N;i++){const m=new Image();m.onload=()=>{loaded++;if(loaded<3||i===Math.round(fr))draw()};m.src=src(i);imgs[i]=m}
+document.querySelectorAll('[data-go]').forEach(a=>a.onclick=e=>{e.preventDefault();scrollTo({top:film.offsetTop+(+a.dataset.go)*(film.offsetHeight-innerHeight),behavior:'smooth'})});
+addEventListener('resize',()=>{rs();upd()});addEventListener('scroll',upd,{passive:true});upd();ps=p;rs();
+(function L(){requestAnimationFrame(L);if(Math.abs(p-ps)>1e-4||loaded<N){ps=RM?p:ps+(p-ps)*.09;frame()}})();
+})();
+</script></body></html>
